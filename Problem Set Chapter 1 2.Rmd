@@ -1,0 +1,203 @@
+---
+title: Linear Algebra  Algorithms, Applications, and Techniques
+##  Third Edition
+author:  Richard Bronson, Gabriel B. Costa, John T. Saccoman
+##  Elsevier Inc.
+##  Problem Sets
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  Chapter 1 
+## Problem Set 1.2
+
+(1) Determine the orders of the following products if the order of A is $2\times 4$, the order of B is $4\times 2$, the order of C is $4\times 1$, the order of D is $1\times 2$, and the order of E is $4 \times 4$.
+(a) AB, (2X4)(4X2)=(2X2)
+(b) BA, (4X2)(2X4)=(4X4)
+(c) AC, (2X4)(4X1)=(2X1)
+(d) CA, (4X1)(2X4) is not defined
+(e) CD, (4X1)(1X2)=(4X2)
+(f) AE, (2X4)(4X4)=(2X4)
+(g) EB, (4X4)(4X2)=(4X2)
+(h) EA, (4X4)(2X4 is not defined)
+(i) ABC, ((2X4)(4X2))(4X1)=(2X2)(4X1) is not defined
+(j) DAE, ((1X2)(2X4))(4X4)= (1X4)(4X4)=(1X4)
+(k) EBA, ((4X4)(4X2))(2X4)=(4X2)(2X4)=(4X4)
+(l) EECD.(((4X4)(4X4))(4X1))(1X2)=((4X4)(4X1))(1X2)=(4X1)(1X2)=(4X2)
+
+In Problems 2 through 19, find the indicated products for
+\[
+A=\begin{bmatrix}
+1 & 2 \\
+3 & 4
+\end{bmatrix}
+\]
+\[
+B=\begin{bmatrix}
+5 & 6 \\
+7 & 8
+\end{bmatrix}
+\]
+\[
+C=\begin{bmatrix}
+-1& \quad 0& 1\\
+\quad 3& -2& 1
+\end{bmatrix}
+\]
+\[
+D=\begin{bmatrix}
+\quad 1& \quad 1\\
+-1& \quad 3\\
+\quad 2& -2
+\end{bmatrix}
+\]
+\[
+E=\begin{bmatrix}
+-2& \quad 2& \quad 1\\
+\quad 0& -2& -1\\
+\quad 1& \quad 0& \quad 1\\
+\end{bmatrix}
+\]
+\[
+F=\begin{bmatrix}
+\quad 0& \quad 1& 2\\
+-1& -1& 0\\
+\quad 1& \quad 2& 3\\
+\end{bmatrix}
+\]
+\[
+x=\begin{bmatrix}
+1& -2
+\end{bmatrix}
+\]
+\[
+y=\begin{bmatrix}
+1 &2 &1
+\end{bmatrix}
+\]
+(2) AB. (3) BA. (4) AC. (5) BC. (6) CB. (7) xA.
+(8) xB. (9) xC. (10) Ax. (11) CD. (12) DC. (13) yD.
+(14) yC. (15) Dx. (16) xD. (17) EF. (18) FE. (19) yF.
+
+```{r}
+A<-matrix(c(1,3,2,4), nrow=2, ncol=2, byrow=FALSE)
+B<-matrix(c(5,7,6,8), nrow=2, ncol=2, byrow=FALSE)
+C<-matrix(c(-1, 0, 1, 3, -2, 1), nrow=2, ncol=3, byrow=TRUE)
+D<-matrix(c(1, 1, -1, 3, 2, -2), nrow=3, ncol=2, byrow=TRUE)
+E<-matrix(c(-2, 2, 1, 0, -2, -1, 1, 0, 1), nrow=3, ncol=3, byrow=TRUE)
+F<-matrix(c(0, 1, 2, -1, -1, 0, 1, 2, 3), nrow=3, ncol=3, byrow=TRUE)
+x<-matrix(c(1, -2), nrow=1, ncol=2, byrow=TRUE)
+y<-matrix(c(1,2,1), nrow=1, ncol=3, byrow=TRUE)
+
+writeLines("(2) AB:\t");A %*% B; writeLines("\n")
+writeLines("(3) BA:\t");B %*% A; writeLines("\n")
+writeLines("(4) AC:\t");A %*% C; writeLines("\n")
+writeLines("(5) BC:\t");B %*% C; writeLines("\n")
+writeLines("(6) CB:\t Non Conformable");writeLines("\n") 
+writeLines("(7) xA:\t");x %*% A; writeLines("\n")
+writeLines("(8) xB:\t");x %*% B; writeLines("\n") 
+writeLines("(9) xC:\t");x %*% C; writeLines("\n") 
+writeLines("(10) Ax:\t Non Conformable"); writeLines("\n") 
+writeLines("(11) CD:\t");C %*% D; writeLines("\n") 
+writeLines("(12) DC:\t");D %*% C; writeLines("\n") 
+writeLines("(13) yD:\t");y %*% D; writeLines("\n")
+writeLines("(14) yC:\t Non Conformable"); writeLines("\n") 
+writeLines("(15) Dx:\t Non Conformable"); writeLines("\n") 
+writeLines("(16) xD:\t Non Conformable"); writeLines("\n") 
+writeLines("(17) EF:\t");E %*% F; writeLines("\n") 
+writeLines("(18) FE:\t");F %*% E; writeLines("\n") 
+writeLines("(19) yF:\t");y %*% F; writeLines("\n")
+```
+(20) Find AB for 
+\[
+A=\begin{bmatrix}
+2& 6\\
+3& 9
+\end{bmatrix}
+\]
+\[
+B=\begin{bmatrix}
+\quad 3& -6\\
+-1& \quad 2
+\end{bmatrix}
+\]
+
+```{r}
+A<-matrix(c(2,3,6,9), nrow=2, ncol=2, byrow=FALSE)
+B<-matrix(c(3,-1,-6,2), nrow=2, ncol=2, byrow=FALSE)
+writeLines("AB:");A;B;A %*% B
+```
+
+(21) Find AB for 
+\[
+A=\begin{bmatrix}
+4& 2\\
+2& 1
+\end{bmatrix}
+\]
+\[
+B=\begin{bmatrix}
+\quad 3& -4\\
+-6& \quad 8
+\end{bmatrix}
+\]
+
+```{r}
+A<-matrix(c(4,2,2,1), nrow=2, ncol=2, byrow=FALSE)
+B<-matrix(c(3,-4,-6,8), nrow=2, ncol=2, byrow=FALSE)
+writeLines("AB:");A;B;A %*% B
+```
+
+Find AB and AC for 
+\[
+A=\begin{bmatrix}
+4& 2\\
+2& 1
+\end{bmatrix}
+\]
+\[
+B=\begin{bmatrix}
+1& 1\\
+2& 1
+\end{bmatrix}
+\]
+\[
+C=\begin{bmatrix}
+2& \quad 2\\
+0& -1
+\end{bmatrix}
+\]
+
+```{r}
+A<-matrix(c(4,2,2,1), nrow=2, ncol=2, byrow=FALSE)
+B<-matrix(c(1,1,2,1), nrow=2, ncol=2, byrow=TRUE)
+C<-matrix(c(2,2,0,-1), nrow=2, ncol=2, byrow=TRUE)
+writeLines("AB:");A;B;A %*% B; writeLines("\n")
+writeLines("AC:");A;C;A %*% C; writeLines("\n")
+```
+
+(51) The price schedule for a Chicago to Los Angeles flight is given by
+\[
+p=\begin{bmatrix}
+200 & 350 & 500\\
+\end{bmatrix}
+\]
+\[
+n=\begin{bmatrix}
+130\\
+20\\
+10
+\end{bmatrix}
+\]
+
+```{r}
+p<-matrix(c(200,350,500), nrow=1, ncol=3, byrow=TRUE)
+n<-matrix(c(130,20,10), nrow=3, ncol=1, byrow=FALSE)
+writeLines("pn:"); p;n;p %*% n; writeLines("\n")
+writeLines("np:"); n;p;n %*% p; writeLines("\n")
+```

@@ -1,0 +1,1159 @@
+---
+title: "Linear Algebra  Algorithms, Applications, and Techniques"
+author: "Richard Bronson, Gabriel B. Costa, John T. Saccoman"
+output:
+  html_document:
+     toc:  true
+     theme: null
+     highlight: null
+     css: styles.css
+---
+     
+```{r, include=FALSE}
+library(dplyr)
+library(tidyverse)
+```
+
+#  Chapter 3
+## Problems 3.2
+
+### (1) 
+Define **T** : $\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{ by }
+T\begin{bmatrix}
+     a&b
+\end{bmatrix}=
+\begin{bmatrix}
+     2a&3b
+\end{bmatrix}
+\textrm{. Find }\\
+(a) T\begin{bmatrix}
+     2&3
+\end{bmatrix}=
+\begin{bmatrix}
+     4&9
+\end{bmatrix}\\
+(b) T\begin{bmatrix}
+     -1&5\end{bmatrix}=
+\begin{bmatrix}
+     -2&15
+\end{bmatrix}\\
+(c) T\begin{bmatrix}
+     -8&200
+\end{bmatrix}=
+\begin{bmatrix}
+     -16&600
+\end{bmatrix}\\
+(d) T\begin{bmatrix}
+     0&-7
+\end{bmatrix}=
+\begin{bmatrix}
+     0&-21
+\end{bmatrix}$
+     
+### (2) 
+Define **T** : $\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{ by }T[a b]=[a+2 b-2]$. Find
+     (a) T[2 3] = [4 1]
+     (b) T[-1 5]= [1 3]
+     (c) T[-8 200] = [-6 198]
+     (d) T[0 -7] = [2 -9]
+     
+### (3) 
+Define **S** : $\mathbb{R}^3$ $\rightarrow$ $\mathbb{R}^2$ by **S**[a b c]=[a+b c]. Find
+     (a) S[1 2 3] = [3 3]
+     (b) S[-2 3 -3] = [1 -3]
+     (c) S[2 -2 0] = [0 0]
+     (d) S[1 4 3] = [5 3]
+     
+### (4) 
+Redo Problem 3 with S[a b c]=[a-c c-b].
+     (a) S[1 2 3] = [-2 1]
+     (b) S[-2 3 -3] = [1 -6]
+     (c) S[2 -2 0] = [2 2]
+     (d) S[1 4 3] = [-3 -1]
+     
+### (5) 
+Redo Problem 3 with S[a b c]=[a+2b-3c 0].
+     (a) S[1 2 3] = [-4 0]
+     (b) S[-2 3 -3] = [13 0]
+     (c) S[2 -2 0] = [-2 0]
+     (d) S[1 4 3] = [0 0]
+     
+### (6) 
+Define **N** : $\mathbb{R}^2$ $\rightarrow$ $\mathbb{R}^3$ by **N**[a b]=[a+b 2a+b b+2] Find
+     N[1 1] = [2 3 3]
+     N[2 -3] = [-1 1 -1]
+     N[3 0] = [3 6 2]
+     N[0 0] = [0 0 2]
+     
+### (11) 
+T[$\alpha$a $\alpha$b] = [2$\alpha$a 3$\alpha$b] = $\alpha$[2a 3b] = $\alpha$T[a b] 
+     
+### (25) 
+S[a b c]=abc;     
+     S[$\alpha$(a b c)]=S[$\alpha$a $\alpha$b $\alpha$c] = $\alpha^3$ abc != $\alpha$ abc = $\alpha$S[abc]
+     
+## Problems 3.3
+
+In Problems 1 through 25, find the matrix representation for T : $\mathbb{V}$ $\rightarrow$ $\mathbb{W}$ with
+respect to the given bases, $\mathbb{B}$ for a vector space $\mathbb{V}$ and $\mathbb{C}$ for a vector space $\mathbb{W}$.
+
+### (1) 
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^3 \textrm{ defined by }
+T\begin{bmatrix}
+     a\\ b\\
+\end{bmatrix} =
+\begin{bmatrix}
+     a+b\\ a-b\\ 2b
+\end{bmatrix},
+\mathbb{B} =
+     \left \{
+          \begin{bmatrix}
+               1\\0
+          \end{bmatrix},
+          \begin{bmatrix}
+               1\\1
+          \end{bmatrix}
+     \right \} \textrm{, and }
+\mathbb{C} =
+     \left \{
+          \begin{bmatrix}
+               1\\ 0\\ 0
+          \end{bmatrix},
+          \begin{bmatrix}
+               0\\ 1\\ 0
+          \end{bmatrix},
+          \begin{bmatrix}
+               0\\ 0\\ 1
+          \end{bmatrix}
+     \right \}\\
+\begin{aligned}
+T\begin{bmatrix} 
+     1\\ 0 
+\end{bmatrix} &= 
+\begin{bmatrix} 
+     1+0\\ 1-0\\ 2*0 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     1\\ 1\\ 0 
+\end{bmatrix} = 
+1\begin{bmatrix}
+     1\\ 0\\ 0\\ 
+\end{bmatrix} 
++1\begin{bmatrix} 
+     0\\ 1\\ 0 
+\end{bmatrix} 
++0\begin{bmatrix} 
+     0\\ 0\\ 1 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     1\\ 1\\ 0 
+\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix} 
+     1\\ 1 
+\end{bmatrix} &= 
+\begin{bmatrix} 
+     1+1\\ 1-1\\ 2*1 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     2\\ 0\\ 2 
+\end{bmatrix} = 
+2\begin{bmatrix}
+     1\\ 0\\ 0\\ 
+\end{bmatrix} +
+0\begin{bmatrix} 
+     0\\ 1\\ 0 
+\end{bmatrix} + 
+2\begin{bmatrix} 
+     0\\ 0\\ 1 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     2\\ 1\\ 2 
+\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+     \begin{bmatrix} 
+          1 & 2\\ 1 & 0\\ 0 & 2 
+     \end{bmatrix}_\mathbb{C}
+     \end{aligned}$
+
+### (2) 
+$\textrm{Problem 1 with }
+\mathbb{B} = 
+     \left \{ 
+          \begin{bmatrix} 
+               1\\ 1 
+          \end{bmatrix}, 
+          \begin{bmatrix} 
+               1\\ 2 
+          \end{bmatrix}
+     \right \}\\
+\begin{aligned}
+T\begin{bmatrix} 
+     1\\ 1 
+\end{bmatrix} &= 
+\begin{bmatrix} 
+     1+1\\ 1-1\\ 2*1 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     2\\ 0\\ 2 
+\end{bmatrix}\\
+T\begin{bmatrix} 
+     1\\ 2 
+\end{bmatrix} &= 
+\begin{bmatrix} 
+     1+2\\ 1-2\\ 2*2 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     3\\ -1\\ 4 
+\end{bmatrix}\\
+T&\leftrightarrow 
+     \begin{bmatrix} 
+          2 & 3\\ 0 & -1\\ 2 & 4 
+     \end{bmatrix}_\mathbb{C}
+\end{aligned}$
+
+### (3) 
+$\textrm{Problem 1 with }
+\mathbb{C} = 
+     \left \{ 
+          \begin{bmatrix} 
+               1\\ 1\\ 0
+          \end{bmatrix}, 
+          \begin{bmatrix}
+               1\\ 0\\ 1
+          \end{bmatrix},
+          \begin{bmatrix}
+               0\\ 1\\ 0
+          \end{bmatrix}
+     \right \}\\
+\begin{align}
+T\begin{bmatrix}
+     1\\ 0
+\end{bmatrix} &=
+\begin{bmatrix} 
+     1+0\\ 1-0\\ 2*0
+\end{bmatrix} = 
+\begin{bmatrix} 
+     1\\ 1\\ 0
+\end{bmatrix} = 
+1\begin{bmatrix}
+     1\\ 1\\ 0\\
+\end{bmatrix}
++0\begin{bmatrix}
+     1\\ 0\\ 1
+\end{bmatrix}
++0\begin{bmatrix}
+     0\\ 1\\ 0
+\end{bmatrix} = 
+\begin{bmatrix} 
+     1\\ 0\\ 0 
+\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix} 
+     1\\ 1
+\end{bmatrix} &= 
+\begin{bmatrix}
+     1+1\\ 1-1\\ 2*1
+\end{bmatrix} = 
+\begin{bmatrix}
+     2\\ 0\\ 2
+\end{bmatrix} = 
+0\begin{bmatrix}
+     1\\ 1\\ 0\\
+\end{bmatrix}
++2\begin{bmatrix}
+     1\\ 0\\ 1
+\end{bmatrix}
++0\begin{bmatrix}
+     0\\ 1\\ 0
+\end{bmatrix} = 
+\begin{bmatrix} 
+     0\\ 2\\ 0 
+\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+\begin{bmatrix} 
+     1 & 0\\ 0 & 2\\ 0 & 0 
+\end{bmatrix}_\mathbb{C}
+\end{align}$
+
+### (4) 
+$\textrm{Problem 1 with }
+\mathbb{B} =
+     \left \{ 
+          \begin{bmatrix}
+               1\\ 1
+          \end{bmatrix},
+          \begin{bmatrix}
+               1\\ 2
+          \end{bmatrix}
+     \right \}
+\textrm{ and }
+\mathbb{C} = 
+     \left \{
+          \begin{bmatrix}
+               1\\ 1\\ 0
+          \end{bmatrix},
+          \begin{bmatrix}
+               1\\ 0\\ 1
+          \end{bmatrix},
+          \begin{bmatrix}
+               0\\ 1\\ 0
+          \end{bmatrix}
+     \right \}\\
+\begin{align}
+T\begin{bmatrix}
+     1\\ 1 
+\end{bmatrix} &= 
+     \begin{bmatrix} 
+          1+1\\ 1-1\\ 2*1
+     \end{bmatrix}= 
+     \begin{bmatrix}
+          2\\ 0\\ 2
+     \end{bmatrix}=
+     0\begin{bmatrix}
+          1\\ 1\\ 0
+     \end{bmatrix}
+     +2\begin{bmatrix}
+          1\\ 0\\ 1
+     \end{bmatrix}
+     +0\begin{bmatrix}
+          0\\ 1\\ 0
+     \end{bmatrix}=
+     \begin{bmatrix}
+          0\\ 2\\ 0
+     \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}
+     1\\ 2
+\end{bmatrix} &=
+     \begin{bmatrix}
+          1+2\\ 1-2\\ 2*2
+     \end{bmatrix}=
+     \begin{bmatrix}
+          3\\ -1\\ 4
+     \end{bmatrix} =
+     -1\begin{bmatrix}
+          1\\ 1\\ 0
+     \end{bmatrix}
+     +4\begin{bmatrix}
+          1\\ 0\\ 1
+     \end{bmatrix}
+     +0\begin{bmatrix}
+          0\\ 1\\ 0
+     \end{bmatrix} = 
+     \begin{bmatrix}
+          -1\\ 4\\ 0
+     \end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+     \begin{bmatrix}
+          0 & -1\\ 2 & 4\\ 0 & 0
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+
+### (5)  
+$T:\mathbb{R}^3 \rightarrow \mathbb{R}^2 \textrm{ defined by }
+T\begin{bmatrix}
+     a\\ b\\ c \end{bmatrix} = \begin{bmatrix}2a+3b-c\\ 4b+5c \end{bmatrix} \textrm{, and }
+\mathbb{B} = \left \{ \begin{bmatrix}1\\ 0\\ 0 \end{bmatrix}, \begin{bmatrix}1\\ 1\\ 0 \end{bmatrix}, \begin{bmatrix}1\\ 1\\ 1 \end{bmatrix} \right \} \textrm{, and }
+\mathbb{C} = \left \{ \begin{bmatrix}1\\1 \end{bmatrix}, \begin{bmatrix}0\\1 \end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}1\\0\\0 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(0)-0\\4(0)+5(0) \end{bmatrix}=\begin{bmatrix}2\\0 \end{bmatrix}=2\begin{bmatrix}1\\1 \end{bmatrix} -2\begin{bmatrix}0\\1 \end{bmatrix}=\begin{bmatrix}2\\-2 \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\1\\0 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(1)-0\\4(1)+5(0) \end{bmatrix}=\begin{bmatrix}5\\4 \end{bmatrix}=5\begin{bmatrix}1\\1 \end{bmatrix} -1\begin{bmatrix}0\\1 \end{bmatrix}=\begin{bmatrix}5\\-1 \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\1\\1 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(1)-1\\4(1)+5(1) \end{bmatrix}=\begin{bmatrix}3\\9 \end{bmatrix}=3\begin{bmatrix}1\\1 \end{bmatrix} +6\begin{bmatrix}0\\1 \end{bmatrix}=\begin{bmatrix}3\\6 \end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow \begin{bmatrix}2&5&3\\-2&-1&6 \end{bmatrix}_\mathbb{C}
+\end{align}$
+     
+### (6)  
+$\textrm{Problem 5 with }
+\mathbb{B} = \left \{ \begin{bmatrix}1\\ -1\\ 0 \end{bmatrix}, \begin{bmatrix}1\\ 0\\ -1 \end{bmatrix}, \begin{bmatrix}-1\\ 1\\ 1 \end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}1\\-1\\0 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(-1)-0\\4(-1)+5(0) \end{bmatrix}=\begin{bmatrix}-1\\-4 \end{bmatrix}=-1\begin{bmatrix}1\\1 \end{bmatrix} -3\begin{bmatrix}0\\1 \end{bmatrix}=\begin{bmatrix}-1\\-3 \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\0\\-1 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(0)-(-1)\\4(0)+5(-1) \end{bmatrix}=\begin{bmatrix}3\\-5 \end{bmatrix}=3\begin{bmatrix}1\\1 \end{bmatrix} -8\begin{bmatrix}0\\1 \end{bmatrix}=\begin{bmatrix}3\\-8 \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}-1\\1\\1 \end{bmatrix} &= \begin{bmatrix} 2(-1)+3(1)-1\\4(1)+5(1) \end{bmatrix}=\begin{bmatrix}0\\9 \end{bmatrix}=0\begin{bmatrix}1\\1 \end{bmatrix} +9\begin{bmatrix}0\\1 \end{bmatrix}=\begin{bmatrix}0\\9 \end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow \begin{bmatrix}-1&3&0\\-3&-8&9 \end{bmatrix}_\mathbb{C}
+\end{align}$
+
+### (7) 
+$\textrm{Problem 5 with }
+\mathbb{C} = \left \{ \begin{bmatrix}1\\1 \end{bmatrix}, \begin{bmatrix}1\\-1 \end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}1\\0\\0 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(0)-0\\4(0)+5(0) \end{bmatrix}=\begin{bmatrix}2\\0 \end{bmatrix}=1\begin{bmatrix}1\\1 \end{bmatrix} +1\begin{bmatrix}1\\-1 \end{bmatrix}=\begin{bmatrix}1\\-1 \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\1\\0 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(1)-0\\4(1)+5(0) \end{bmatrix}=\begin{bmatrix}5\\4 \end{bmatrix}=4.5\begin{bmatrix}1\\1 \end{bmatrix} +.5\begin{bmatrix}1\\-1 \end{bmatrix}=\begin{bmatrix}4.5\\.5 \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\1\\1 \end{bmatrix} &= \begin{bmatrix} 2(1)+3(1)-1\\4(1)+5(1) \end{bmatrix}=\begin{bmatrix}3\\9 \end{bmatrix}=6\begin{bmatrix}1\\1 \end{bmatrix} -3\begin{bmatrix}1\\-1 \end{bmatrix}=\begin{bmatrix}6\\-3 \end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow \begin{bmatrix}1&4.5&6\\-1&.5&-3 \end{bmatrix}_\mathbb{C}
+\end{align}$
+     
+### (8)  
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^3 \textrm{ defined by}
+T\begin{bmatrix} 
+     a\\ b\\ 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     a+b\\ a-b\\ 2b 
+\end{bmatrix},
+\mathbb{B} = 
+     \left \{ 
+          \begin{bmatrix} 
+               1\\1
+          \end{bmatrix}, 
+          \begin{bmatrix} 
+               1\\-1
+          \end{bmatrix} 
+     \right \} \textrm{, and}
+\mathbb{C} = 
+     \left \{ 
+          \begin{bmatrix} 
+               1\\-1\\0 
+          \end{bmatrix}, 
+          \begin{bmatrix} 
+               1\\0\\-1
+          \end{bmatrix}, 
+          \begin{bmatrix} 
+               -1\\1\\1
+          \end{bmatrix} 
+     \right \}\\
+T\begin{bmatrix} 
+     1\\1
+\end{bmatrix} = 
+\begin{bmatrix} 
+     1+1\\ 1-1\\ 2*1 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     2\\0\\2 
+\end{bmatrix} = 
+x\begin{bmatrix}
+     1\\-1\\0
+\end{bmatrix} 
++y\begin{bmatrix} 
+     1\\0\\-1
+\end{bmatrix} 
++z\begin{bmatrix} 
+     -1\\ 1\\1 
+\end{bmatrix}, 
+\left ( 
+     \begin{array}{lcl} 
+          x+y-z&=&2\\-x+z&=&0\\-y+z&=&2 
+     \end{array} 
+\right ) 
+\therefore  
+\begin{bmatrix}
+     x\\y\\z
+\end{bmatrix}=
+\begin{bmatrix} 
+     4\\2\\4 
+\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix} 
+     1\\-1 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     1+(-1)\\ 1-(-1)\\ 2*(-1) 
+\end{bmatrix} = 
+\begin{bmatrix} 
+     0\\ 2\\ -2 
+\end{bmatrix} = 
+x\begin{bmatrix}
+     1\\-1\\0\\ 
+\end{bmatrix} 
++y\begin{bmatrix} 
+     1\\0\\-1
+\end{bmatrix} 
++z\begin{bmatrix} 
+     -1\\1\\1
+\end{bmatrix},\\ 
+\left ( 
+     \begin{array}{lcl} 
+          x+y-z&=&0\\-x+z&=&2\\-y+z&=&-2 
+     \end{array} 
+\right ) 
+\therefore 
+\begin{bmatrix}
+     x\\y\\z
+\end{bmatrix}=
+\begin{bmatrix} 
+     -2\\2\\0 
+\end{bmatrix}_\mathbb{C}\\
+T\leftrightarrow \begin{bmatrix} 4 & -2\\ 2 & 2\\ 4 & 0 \end{bmatrix}_\mathbb{C}$
+
+### (9)  
+$T:\mathbb{R}^3 \rightarrow \mathbb{R}^2 \textrm{ defined by }
+T\begin{bmatrix}a\\ b\\ c \end{bmatrix} = \begin{bmatrix}a+2b-3c\\ 9a-8b-7c \end{bmatrix} \textrm{, and }
+\mathbb{B} = 
+     \left \{ 
+          \begin{bmatrix}1\\ 0\\ 0 \end{bmatrix}, 
+          \begin{bmatrix}1\\ 1\\ 0 \end{bmatrix}, 
+          \begin{bmatrix}1\\ 1\\ 1 \end{bmatrix} 
+     \right \} \textrm{, and }
+\mathbb{C} = 
+     \left \{ 
+          \begin{bmatrix}1\\1 \end{bmatrix}, 
+          \begin{bmatrix}0\\1 \end{bmatrix} 
+     \right \}\\
+\begin{align}
+T\begin{bmatrix}1\\0\\0\end{bmatrix} &= 
+     \begin{bmatrix} (1)+2(0)-3(0)\\9(1)-8(0)-7(0)\end{bmatrix}=
+     \begin{bmatrix}1\\9\end{bmatrix}=
+     1\begin{bmatrix}1\\1 \end{bmatrix} +8\begin{bmatrix}0\\1 \end{bmatrix}=
+     \begin{bmatrix}1\\8 \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\1\\0 \end{bmatrix} &= 
+     \begin{bmatrix} (1)+2(1)-3(0)\\9(1)-8(1)-7(0) \end{bmatrix}=
+     \begin{bmatrix}3\\1 \end{bmatrix}=
+     3\begin{bmatrix}1\\1 \end{bmatrix}
+     -2\begin{bmatrix}0\\1 \end{bmatrix}=
+     \begin{bmatrix}3\\-2\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\1\\1 \end{bmatrix} &= 
+     \begin{bmatrix} (1)+2(1)-3(1)\\9(1)-8(1)-7(1)\end{bmatrix}=
+     \begin{bmatrix}0\\-6\end{bmatrix}=
+     0\begin{bmatrix}1\\1 \end{bmatrix}
+     -6\begin{bmatrix}0\\1 \end{bmatrix}=
+     \begin{bmatrix}0\\-6 \end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow \begin{bmatrix}1&3&0\\8&-2&-6 \end{bmatrix}_\mathbb{C}
+\end{align}$
+     
+### (10) 
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{defined by}
+T\begin{bmatrix}a\\b\end{bmatrix} = \begin{bmatrix}25a+30b\\-45a+50b\end{bmatrix}\textrm{, and} 
+\mathbb{B}=\mathbb{C}=\left \{ \begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}1\\0\end{bmatrix}&=
+     \begin{bmatrix}25(1)+30(0)\\-45(1)+50(0)\end{bmatrix}=
+     \begin{bmatrix}25\\-45\end{bmatrix}=
+     25\begin{bmatrix}1\\0\end{bmatrix}
+     -45\begin{bmatrix}0\\1\end{bmatrix}=
+     \begin{bmatrix}25\\-45\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}0\\1\end{bmatrix}&=
+     \begin{bmatrix}25(0)+30(1)\\-45(0)+50(1)\end{bmatrix}=
+     \begin{bmatrix}30\\50\end{bmatrix}=
+     30\begin{bmatrix}1\\0\end{bmatrix}
+     +50\begin{bmatrix}0\\1\end{bmatrix}=
+     \begin{bmatrix}30\\50\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+     \begin{bmatrix}
+          25&30\\-45&50
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+     
+### (11) 
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{ defined by }
+T\begin{bmatrix}a\\b\end{bmatrix} = \begin{bmatrix}25a+30b\\-45a+50b\end{bmatrix}\textrm{, and }
+\mathbb{B}=\left \{ \begin{bmatrix}10\\10\end{bmatrix},\begin{bmatrix}0\\5\end{bmatrix} \right \}, 
+\mathbb{C}=\left \{ \begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}10\\10\end{bmatrix}&=
+     \begin{bmatrix}25(10)+30(10)\\-45(10)+50(10)\end{bmatrix}=
+     \begin{bmatrix}550\\50\end{bmatrix}=
+     550\begin{bmatrix}1\\0\end{bmatrix}
+     +50\begin{bmatrix}0\\1\end{bmatrix}=
+     \begin{bmatrix}550\\50\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}0\\5\end{bmatrix}&=
+     \begin{bmatrix}25(0)+30(5)\\-45(0)+50(5)\end{bmatrix}=
+     \begin{bmatrix}150\\250\end{bmatrix}=
+     150\begin{bmatrix}1\\0\end{bmatrix}
+     +250\begin{bmatrix}0\\1\end{bmatrix}=
+     \begin{bmatrix}150\\250\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+     \begin{bmatrix}
+          550&50\\150&250
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+          
+### (12) 
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{ defined by }
+T\begin{bmatrix}a\\b\end{bmatrix} = \begin{bmatrix}25a+30b\\-45a+50b\end{bmatrix} \textrm{, and }
+\mathbb{B}=\left \{ \begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix} \right \}
+\mathbb{C}=\left \{ \begin{bmatrix}10\\10\end{bmatrix},\begin{bmatrix}0\\5\end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}1\\0\end{bmatrix}&=
+     \begin{bmatrix}25(1)+30(0)\\-45(1)+50(0)\end{bmatrix}=
+     \begin{bmatrix}25\\-45\end{bmatrix}=
+     2.5\begin{bmatrix}10\\10\end{bmatrix}
+     -14\begin{bmatrix}0\\5\end{bmatrix}=
+     \begin{bmatrix}2.5\\-14\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}0\\1\end{bmatrix}&=
+     \begin{bmatrix}25(0)+30(1)\\-45(0)+50(1)\end{bmatrix}=
+     \begin{bmatrix}30\\50\end{bmatrix}=
+     3\begin{bmatrix}10\\10\end{bmatrix}
+     +4\begin{bmatrix}0\\5\end{bmatrix}=
+     \begin{bmatrix}3\\4\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+     \begin{bmatrix}
+          2.5&3\\-14&4
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+          
+### (13) 
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{ defined by }
+T\begin{bmatrix}a\\b\end{bmatrix} = \begin{bmatrix}25a+30b\\-45a+50b\end{bmatrix} \textrm{, and }
+\mathbb{B}=\mathbb{C}=\left \{ \begin{bmatrix}10\\10\end{bmatrix},\begin{bmatrix}0\\5\end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}10\\10\end{bmatrix}&=
+     \begin{bmatrix}25(10)+30(10)\\-45(10)+50(10)\end{bmatrix}=
+     \begin{bmatrix}550\\50\end{bmatrix}=
+     55\begin{bmatrix}10\\10\end{bmatrix}
+     -100\begin{bmatrix}0\\5\end{bmatrix}=
+     \begin{bmatrix}55\\-100\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}0\\5\end{bmatrix}&=
+     \begin{bmatrix}25(0)+30(5)\\-45(0)+50(5)\end{bmatrix}=
+     \begin{bmatrix}150\\250\end{bmatrix}=
+     15\begin{bmatrix}10\\10\end{bmatrix}
+     +20\begin{bmatrix}0\\5\end{bmatrix}=
+     \begin{bmatrix}15\\20\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+     \begin{bmatrix}
+          55&15\\-100&20
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+
+### (14) 
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{defined by}
+T\begin{bmatrix}a\\b\end{bmatrix} = \begin{bmatrix}25a+30b\\-45a+50b\end{bmatrix} \textrm{, and}\\ 
+\mathbb{B}=\left \{ \begin{bmatrix}1\\-1\end{bmatrix},\begin{bmatrix}1\\2\end{bmatrix} \right \}\\
+\mathbb{C}=\left \{ \begin{bmatrix}1\\2\end{bmatrix},\begin{bmatrix}2\\1\end{bmatrix} \right \}\\
+T\begin{bmatrix}1\\-1\end{bmatrix}=
+          \begin{bmatrix}25(1)+30(-1)\\-45(1)+50(-1)\end{bmatrix}=
+          \begin{bmatrix}-5\\-95\end{bmatrix}=
+          \begin{bmatrix}1&2\\2&1\end{bmatrix}
+          \begin{bmatrix}x\\y\end{bmatrix},$
+          
+```{r}
+C<-matrix(c(1,2,2,1), nrow=2, ncol=2, byrow=FALSE)
+b<-matrix(c(-5,-95), nrow=2, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+
+<!---          
+          $$
+          \left ( 
+               \begin{array}{lcl} 
+                    x+2y&=&-5\\2x+y&=&-95
+               \end{array} 
+          \right ), \\
+         \left (
+               \begin{array}{lcl}
+                    x&=&-2y-5\\2(-2y-5)+y&=&-95\\-3y&=&-85\\y&=&\frac{85}{3}\\x&=&\frac{-185}{3}
+               \end{array}
+          \right )$$
+-->
+
+$\therefore 
+     \begin{bmatrix}
+          x\\y
+     \end{bmatrix}=
+     \begin{bmatrix} 
+          \frac{-185}{3}\\\frac{85}{3}
+     \end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}1\\2\end{bmatrix}=
+     \begin{bmatrix}25(1)+30(2)\\-45(1)+50(2)\end{bmatrix}=
+     \begin{bmatrix}85\\55\end{bmatrix}=
+     \begin{bmatrix}1&2\\2&1\end{bmatrix}
+     \begin{bmatrix}x\\y\end{bmatrix},$
+     
+```{r}
+C<-matrix(c(1,2,2,1), nrow=2, ncol=2, byrow=FALSE)
+b<-matrix(c(85,55), nrow=2, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+
+     
+<!---     
+          $$
+          \left ( 
+               \begin{array}{lcl} 
+                    x+2y&=&85\\2x+y&=&55
+               \end{array} 
+          \right ), \\
+          \left ( 
+               \begin{array}{lcl} 
+                    x&=&-2y+85\\-4y+170+y&=&55\\-3y&=&-115
+               \end{array} 
+          \right )$$
+-->
+          
+$\therefore 
+     \begin{bmatrix}
+          x\\y
+     \end{bmatrix}=
+     \begin{bmatrix} 
+          \frac{25}{3}\\ \frac{115}{3}
+     \end{bmatrix}_\mathbb{C}\\
+T\leftrightarrow 
+     \begin{bmatrix}
+          \frac{-185}{3}& \frac{25}{3} \\ \frac{85}{3} & \frac{115}{3}
+     \end{bmatrix}_\mathbb{C}$ 
+          
+### (15)
+$T:\mathbb{R}^2 \rightarrow \mathbb{R}^2 \textrm{defined by}
+T\begin{bmatrix}a\\b\end{bmatrix} = \begin{bmatrix}2a\\3b-a\end{bmatrix}\textrm{, and} 
+\mathbb{B}=\mathbb{C}=\left \{ \begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix} \right \}\\
+\begin{align}
+T\begin{bmatrix}1\\0\end{bmatrix}&=
+     \begin{bmatrix}2(1)\\3(0)-(1)\end{bmatrix}=
+     \begin{bmatrix}2\\-1\end{bmatrix}=
+     2\begin{bmatrix}1\\0\end{bmatrix}
+     -1\begin{bmatrix}0\\1\end{bmatrix}=
+     \begin{bmatrix}2\\-1\end{bmatrix}_\mathbb{C}\\
+T\begin{bmatrix}0\\1\end{bmatrix}&=
+     \begin{bmatrix}2(0)\\3(1)-(0)\end{bmatrix}=
+     \begin{bmatrix}0\\3\end{bmatrix}=
+     0\begin{bmatrix}1\\0\end{bmatrix}
+     +3\begin{bmatrix}0\\1\end{bmatrix}=
+     \begin{bmatrix}0\\3\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow 
+     \begin{bmatrix}
+          2&0\\-1&3
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+          
+### (16)
+skipped
+
+### (17)
+$T:\mathbb{P}^2 \rightarrow \mathbb{P}^3 \textrm{ defined by }
+T(at^2+bt+c)=t(at^2+bt+c), 
+\mathbb{B}=\left \{t^2,t,1 \right \}, 
+\mathbb{C}=\left \{t^3,t^2,t,1 \right \}\\
+\begin{align}
+T(t^2)&=t(t^2)=t^3=1(t^3)+0(t^2)+0(t)+0(1)=\begin{bmatrix}1\\0\\0\\0\end{bmatrix}_\mathbb{C}\\
+T(t)&=t(t)=t^2=0(t^3)+1(t^2)+0(t)+0(1)=\begin{bmatrix}0\\1\\0\\0\end{bmatrix}_\mathbb{C}\\
+T(1)&=t(1)=t=0(t^3)+0(t^2)+1(t)+0(1)=\begin{bmatrix}0\\0\\1\\0\end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow
+     \begin{bmatrix}
+          1&0&0\\0&1&0\\0&0&1\\0&0&0 
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+          
+### (18)
+$\textrm{Problem 17 with }
+\mathbb{B}= \left \{t^2+t, t^2+1, t+1 \right \} \textrm{ and with } 
+\mathbb{C}= \left \{t^3, t^2+1, t^2-1, t \right \}\\
+\begin{align}
+T(t^2+t)&=t(t^2+t)=t^3+t^2=1(t^3)+ \frac{1}{2} (t^2+1)+ \frac{1}{2} (t^2-1) + 0(t) = 
+     \begin{bmatrix}1\\ \frac{1}{2} \\ \frac{1}{2} \\0 \end{bmatrix}_\mathbb{C}\\
+T(t^2+1)&=t(t^2+1)=t^3+t=1(t^3) + 0(t^2+1) = 0(t^2-1) + 1(t) =
+     \begin{bmatrix}1\\0\\0\\1 \end{bmatrix}_\mathbb{C}\\
+T(t+1)&=t(t+1)=t^2+t=0(t^3) + \frac{1}{2}(t^2+1)+ \frac{1}{2}(t^2-1) +1(t) =
+     \begin{bmatrix} 0\\ \frac{1}{2} \\ \frac{1}{2} \\ 1 \end{bmatrix}_\mathbb{C}\\
+T&\leftrightarrow
+     \begin{bmatrix}
+          1&1&0\\ 
+          \frac{1}{2} & 0 & \frac{1}{2}\\ 
+          \frac{1}{2} & 0 & \frac{1}{2} \\ 
+          0&1&1 
+     \end{bmatrix}_\mathbb{C}
+\end{align}$
+          
+### (19)
+$T:\mathbb{P}^3 \rightarrow \mathbb{P}^2 \textrm{ defined by } T(at^3+bt^2+ct+d)=3at^2+2bt+c\\
+     \mathbb{B}= \left \{ t^3, t^2+1, t^2-1, t \right \} \textrm{ and }\\
+     \mathbb{C}= \left \{ t^2+t, t^2+1, t+1 \right \}\\
+     T(t^3)=3t^2\\$
+
+```{r}
+C<-matrix(c(1,1,0,1,0,1,0,1,1), nrow=3, ncol=3, byrow=FALSE)
+b<-matrix(c(3,0,0), nrow=3, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+     
+<!---     
+     $$
+     \left (
+          \begin{array}{lcl}
+               x+y&=&3\\x+z&=&0\\y+z&=&0
+          \end{array}
+     \right ), 
+     \left (
+          \begin{array}{lcl}
+               x&=&-z\\y&=&-z\\x&=&y\\2x&=&3\\x&=& \frac{3}{2} \\z&=& \frac{-3}{2}
+          \end{array}
+     \right ) \\
+     $$
+-->     
+
+$T(t^3) \rightarrow 
+     \begin{bmatrix} 
+          \frac{3}{2}\\ \frac{3}{2}\\ \frac{-3}{2} 
+     \end{bmatrix}_\mathbb{C}\\
+T(t^2+1)=2t, \\$
+
+```{r}
+C<-matrix(c(1,1,0,1,0,1,0,1,1), nrow=3, ncol=3, byrow=FALSE)
+b<-matrix(c(0,2,0), nrow=3, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+
+<!---
+     $$
+     \left (
+          \begin{array}{lcl}
+               x+y&=&0\\x+z&=&2\\y+z&=&0
+          \end{array}
+     \right ),
+     \left (
+          \begin{array}{lcl}
+               x&=&-y\\z&=&-y\\x&=&z\\2x&=&2\\x&=&1\\y&=&-1\\z&=&1
+          \end{array}
+     \right ) \\
+     $$
+-->
+     
+$T(t^2+1) \rightarrow 
+     \begin{bmatrix}
+          1\\-1\\1
+     \end{bmatrix}_\mathbb{C}\\
+T(t^2-1)=2t \textrm{ (as above) } \\
+T(t^2-1) \rightarrow 
+     \begin{bmatrix}
+          1\\-1\\1
+     \end{bmatrix}_\mathbb{C} \\
+T(t)=1, \\$
+
+```{r}
+C<-matrix(c(1,1,0,1,0,1,0,1,1), nrow=3, ncol=3, byrow=FALSE)
+b<-matrix(c(0,0,1), nrow=3, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+
+<!---
+     $$
+     \left (
+          \begin{array}{lcl}
+               x+y&=&0\\x+z&=&0\\y+z&=&1
+          \end{array}
+     \right ), 
+     \left (
+          \begin{array}{lcl}
+               x&=&-y\\x&=&-z\\y&=&z\\2y&=&1\\y&=& \frac{1}{2} \\ z&=& \frac{1}{2} \\ x&=& \frac{-1}{2}
+          \end{array}
+     \right )\\
+     $$
+-->
+     
+$T(t) \rightarrow
+     \begin{bmatrix} 
+          \frac{-1}{2} \\ \frac{1}{2} \\ \frac{1}{2} 
+     \end{bmatrix}_\mathbb{C}\\
+T \leftrightarrow
+     \begin{bmatrix}
+          \frac{3}{2} & 1 & 1 & \frac{-1}{2} \\
+          \frac{3}{2} & -1 & -1 & \frac{1}{2} \\
+          \frac{-3}{2} & 1 & 1 & \frac{1}{2}
+     \end{bmatrix}_\mathbb{C}$
+          
+### (20)
+$T:\mathbb{P}^2 \rightarrow \mathbb{R}^2 \textrm{ defined by } T(at^2+bt+c)=\begin{bmatrix}2a+b\\3a-4b+c\end{bmatrix}\\
+\mathbb{B}=\left \{ t^2, t^2-1, t \right \} \textrm{, and } 
+\mathbb{C}=\left \{ \begin{bmatrix}1\\1\end{bmatrix}, \begin{bmatrix}1\\-1\end{bmatrix} \right \}\\
+T(t^2)=T(1(t^2)+0(t)+0)=
+     \begin{bmatrix}2(1)+0\\3(1)-4(0)+0\end{bmatrix}=
+     \begin{bmatrix}2\\3\end{bmatrix}\\$
+
+```{r}
+C<-matrix(c(1,1,1,-1), nrow=2, ncol=2, byrow=FALSE)
+b<-matrix(c(2,3), nrow=2, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+     
+<!---     
+     $$
+     \left (
+          \begin{array}{lcl}
+               x+y&=&2\\x-y&=&3
+          \end{array}
+     \right ), 
+     \left (
+          \begin{array}{lcl}
+               x&=&y+3\\(y+3)+y&=&2\\2y+3&=&2\\y&=& \frac{-1}{2}\\x&=&\frac{5}{2}
+          \end{array}
+     \right ) \\
+     $$
+-->     
+     
+$T(t^2) \rightarrow \begin{bmatrix} \frac{5}{2}\\ \frac{-1}{2} \end{bmatrix}_\mathbb{C}\\
+T(t^2-1)=T(1(t^2)+0(t)-1(1))=
+\begin{bmatrix} 2(1)+0\\3(1)-4(0)+(-1)\end{bmatrix}=
+\begin{bmatrix}2\\2\end{bmatrix}\\$
+
+```{r}
+C<-matrix(c(1,1,1,-1), nrow=2, ncol=2, byrow=FALSE)
+b<-matrix(c(2,2), nrow=2, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+
+<!---
+     $$
+     \left (
+          \begin{array}{lcl}
+               x+y&=&2\\x-y&=&2
+          \end{array}
+     \right ), 
+     \left (
+          \begin{array}{lcl}
+               x&=&y+2\\(y+2)+y&=&2\\2y+2&=&2\\y&=&0\\x&=&2
+          \end{array}
+     \right ) \\     
+     $$
+-->     
+     
+$T(t^2-1) \rightarrow \begin{bmatrix}2\\0\end{bmatrix}_\mathbb{C} \\
+T(t)=T(0(t^2)+1(t)+0)=
+\begin{bmatrix}2(0)+1\\3(0)-4(1)+0\end{bmatrix}=
+\begin{bmatrix}1\\-4\end{bmatrix}\\$
+
+```{r}
+C<-matrix(c(1,1,1,-1), nrow=2, ncol=2, byrow=FALSE)
+b<-matrix(c(1,-4), nrow=2, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+
+<!---
+$$
+     \left (
+          \begin{array}{lcl}
+               x+y&=&1\\x-y&=&-4
+          \end{array}
+     \right ), 
+     \left (
+          \begin{array}{lcl}
+               x&=&y-4\\(y-4)+y&=&1\\2y-4&=&1\\y&=& \frac{5}{2} \\x&=& \frac{-3}{2}
+          \end{array}
+     \right ) \\     
+     $$
+-->
+     
+$T(t) \rightarrow \begin{bmatrix} \frac{-3}{2} \\ \frac{5}{2} \end{bmatrix}_\mathbb{C} \\
+T \leftrightarrow \begin{bmatrix} \frac{5}{2}&2& \frac{-3}{2} \\ \frac{-1}{2}&0& \frac{5}{2} \end{bmatrix}_\mathbb{C}$
+
+### (21)
+T: $\mathbb{P}^2 \rightarrow \mathbb{R}^3 \textrm{ defined by } T(at^2+bt+c)=\begin{bmatrix}2a+3b\\4a-5c\\6b+7c\end{bmatrix}\\
+     \mathbb{B}=\left \{ t^2, t^2-1, t \right \} \textrm{, and } 
+     \mathbb{C}=
+          \left \{ 
+               \begin{bmatrix}
+                    1\\0\\0
+               \end{bmatrix}, 
+               \begin{bmatrix}
+                    1\\1\\0
+               \end{bmatrix},
+               \begin{bmatrix}
+                    1\\1\\1
+               \end{bmatrix}
+          \right \}\\
+     T(t^2)=T(1(t^2)+0(t)+0)=
+          \begin{bmatrix}
+               2(1)+3(0)\\4(1)-5(0)\\6(0)+7(0)
+          \end{bmatrix}=
+          \begin{bmatrix}
+               2\\4\\0
+          \end{bmatrix}=
+          \begin{bmatrix}
+               1&1&1\\0&1&1\\0&0&1
+          \end{bmatrix}
+          \begin{bmatrix}
+               x\\y\\z
+          \end{bmatrix}$
+
+```{r}
+C<-matrix(c(1,1,1,0,1,1,0,0,1), nrow=3, ncol=3, byrow=TRUE)
+b<-matrix(c(2,4,0), nrow=3, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+
+<!---
+          $$
+          \left (
+               \begin{array}{lcl}
+                    x+y+z&=&2\\y+z&=&4\\z&=&0
+               \end{array}
+          \right ), 
+          \left (
+               \begin{array}{lcl}
+                    y+0&=&4\\y&=&4\\x+4+0&=&2\\x&=& -2
+               \end{array}
+          \right ) \\ 
+          $$
+-->
+
+$T(t^2)\rightarrow 
+     \begin{bmatrix}
+          -2\\4\\0
+     \end{bmatrix}\\
+T(t^2-1)=T(1(t^2)+0(t)-1(1))=
+     \begin{bmatrix}
+          2(1)+3(0)\\4(1)-5(-1)\\6(0)+7(-1)
+     \end{bmatrix}=
+     \begin{bmatrix}
+          2\\9\\-7
+     \end{bmatrix}=
+     \begin{bmatrix}1&1&1\\0&1&1\\0&0&1\end{bmatrix}
+     \begin{bmatrix}x\\y\\z\end{bmatrix}$
+     
+```{r}
+C<-matrix(c(1,1,1,0,1,1,0,0,1), nrow=3, ncol=3, byrow=TRUE)
+b<-matrix(c(2,9,-7), nrow=3, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+     
+<!---     
+          $$
+          \left (
+               \begin{array}{lcl}
+                    x+y+z&=&2\\y+z&=&9\\z&=&-7
+               \end{array}
+          \right ), 
+          \left (
+               \begin{array}{lcl}
+                    y-7&=&9\\y&=&16\\x+16-7&=&2\\x&=& -7
+               \end{array}
+          \right ) \\ 
+          $$
+-->
+          
+$T(t^2-1)\rightarrow
+     \begin{bmatrix}
+          -7\\16\\-7
+     \end{bmatrix}_\mathbb{C}\\
+T(t)=T(0(t^2)+1(t)+0)=
+     \begin{bmatrix}
+          2(0)+3(1)\\4(0)-5(0)\\6(1)+7(0)
+     \end{bmatrix}=
+     \begin{bmatrix}
+          3\\0\\6
+     \end{bmatrix}=
+     \begin{bmatrix}1&1&1\\0&1&1\\0&0&1\end{bmatrix}
+     \begin{bmatrix}x\\y\\z\end{bmatrix}\\$
+          
+```{r}
+C<-matrix(c(1,1,1,0,1,1,0,0,1), nrow=3, ncol=3, byrow=TRUE)
+b<-matrix(c(3,0,6), nrow=3, ncol=1, byrow=FALSE)
+solve(C,b)
+```
+          
+<!---          
+          $$
+           \left (
+               \begin{array}{lcl}
+                    x+y+z&=&3\\y+z&=&0\\z&=&6
+               \end{array}
+          \right ), 
+          \left (
+               \begin{array}{lcl}
+                    y+6&=&0\\y&=&-6\\x-6+6&=&3\\x&=&3
+               \end{array}
+          \right ) \\          
+          $$
+-->
+          
+$T(t)\rightarrow \begin{bmatrix}3\\-6\\6\end{bmatrix}_\mathbb{C}\\
+T\leftrightarrow
+     \begin{bmatrix}
+          -2&-7&3\\
+          4&16&-6\\
+          0&-7&6
+     \end{bmatrix}_\mathbb{C}$
+     
+### (22)
+$T:\mathbb{P}^2\rightarrow\mathbb{M}_{2X2}\textrm{ defined by } 
+T(at^2+bt+c)=\begin{bmatrix}2a+b&c-3a\\4a-5c&6b+7c\end{bmatrix},\\
+\mathbb{B}=\left \{ t^2, t^2-1, t \right \}\textrm{, and }\\
+\mathbb{C}=\left \{ 
+     \begin{bmatrix}1&0\\0&0\end{bmatrix}, 
+     \begin{bmatrix}1&1\\0&0\end{bmatrix}, 
+     \begin{bmatrix}0&0\\1&1\end{bmatrix}, 
+     \begin{bmatrix}0&0\\1&-1\end{bmatrix} 
+     \right \}\\
+T(t^2)=T(1(t^2)+0(t)+0)=
+     \begin{bmatrix}
+          2(1)+0&0-3(1)\\4(1)-5(0)&6(0)+7(0)
+     \end{bmatrix}=
+     \begin{bmatrix}
+          2&-3\\4&0
+     \end{bmatrix}\\
+     \begin{bmatrix}
+          2&-3\\4&0
+     \end{bmatrix}=
+     x\begin{bmatrix}1&0\\0&0\end{bmatrix}+
+     y\begin{bmatrix}1&1\\0&0\end{bmatrix}+
+     z\begin{bmatrix}0&0\\1&1\end{bmatrix}+
+     w\begin{bmatrix}0&0\\1&-1\end{bmatrix}\\$
+$$
+\left (
+     \begin{array}{lcl}
+          x+y&=&2\\y&=&-3\\z+w&=&4\\z-w&=& 0
+     \end{array}
+\right ), 
+\left (
+     \begin{array}{lcl}
+          y&=&-3\\x&=&5\\z&=&2\\w&=&2
+     \end{array}
+\right ) \\ 
+$$
+$T(t^2)\rightarrow\begin{bmatrix}5\\-3\\2\\2\end{bmatrix}\\
+T(t^2-1)=T((1)t^2+(0)t+(-1)1)=
+     \begin{bmatrix}
+          2(1)+0&(-1)-3(1)\\
+          4(1)-5(-1)&6(0)+7(-1)
+     \end{bmatrix}=
+     \begin{bmatrix}
+          2&-4\\
+          9&-7
+     \end{bmatrix}\\
+     \begin{bmatrix}
+          2&-4\\
+          9&-7
+     \end{bmatrix}=     
+     x\begin{bmatrix}1&0\\0&0\end{bmatrix}+
+     y\begin{bmatrix}1&1\\0&0\end{bmatrix}+
+     z\begin{bmatrix}0&0\\1&1\end{bmatrix}+
+     w\begin{bmatrix}0&0\\1&-1\end{bmatrix}\\$
+$$
+\left (
+     \begin{array}{lcl}
+          x+y&=&2\\y&=&-4\\z+w&=&9\\z-w&=&-7
+     \end{array}
+\right ), 
+\left (
+     \begin{array}{lcl}
+          y&=&-4\\x&=&6\\z&=&1\\w&=&8
+     \end{array}
+\right ) \\ 
+$$
+$T(t^2)\rightarrow\begin{bmatrix}6\\-4\\1\\8\end{bmatrix}\\
+T(t)=T((0)t^2+(1)t+(0)1)
+     \begin{bmatrix}
+          2(0)+1&(0)-3(0)\\
+          4(0)-5(0)&6(1)+7(0)
+     \end{bmatrix}=
+     \begin{bmatrix}
+          1&0\\
+          0&6
+     \end{bmatrix}\\
+     \begin{bmatrix}
+          1&0\\
+          0&6
+     \end{bmatrix}=     
+     x\begin{bmatrix}1&0\\0&0\end{bmatrix}+
+     y\begin{bmatrix}1&1\\0&0\end{bmatrix}+
+     z\begin{bmatrix}0&0\\1&1\end{bmatrix}+
+     w\begin{bmatrix}0&0\\1&-1\end{bmatrix}\\$
+$$
+\left (
+     \begin{array}{lcl}
+          x+y&=&1\\y&=&0\\z+w&=&0\\z-w&=&6
+     \end{array}
+\right ), 
+\left (
+     \begin{array}{lcl}
+          y&=&0\\x&=&1\\z&=&3\\w&=&-3
+     \end{array}
+\right ) \\ 
+$$
+$T(t)\rightarrow\begin{bmatrix}1\\0\\3\\-3\end{bmatrix}\\
+T\leftrightarrow\begin{bmatrix}
+     5&6&1\\
+     -3&-4&0\\
+     2&1&3\\
+     2&8&-3
+     \end{bmatrix}_\mathbb{C}$
+
+```{r}
+C<-matrix(c(1,0,0,0,1,1,0,0,0,0,1,1,0,0,1,-1), nrow=4, ncol=4, byrow=FALSE)
+b<-matrix(c(2,-3,4,0), nrow=4, ncol=1, byrow=TRUE)
+solve(C,b)
+```
+

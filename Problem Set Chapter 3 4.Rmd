@@ -1,0 +1,55 @@
+---
+title: "Problem Set Chapter3 4"
+author: "Ed Young"
+date: "8/16/2019"
+output:
+  html_document:
+    css: styles.css
+    highlight: null
+    theme: null
+    toc: yes
+  toc: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyverse)
+library(MASS)
+```
+
+### (1) 
+$V_\mathbb{C}=P_\mathbb{B}^\mathbb{C} V_\mathbb{B}\textrm{.  Find}P_\mathbb{B}^\mathbb{C}\textrm{ for}\\
+\mathbb{C}=
+     \begin{bmatrix}
+     0&1\\
+     1&1
+     \end{bmatrix}
+\mathbb{B}=
+     \begin{bmatrix}
+     1&1\\
+     0&1
+\end{bmatrix}\\
+\begin{bmatrix}
+     1\\0
+\end{bmatrix}=
+x\begin{bmatrix}0\\1\end{bmatrix}+
+y\begin{bmatrix}1\\1\end{bmatrix}\therefore
+\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}-1\\1\end{bmatrix}\\
+\begin{bmatrix}
+     1\\1
+\end{bmatrix}=
+x\begin{bmatrix}0\\1\end{bmatrix}+
+y\begin{bmatrix}1\\1\end{bmatrix}\therefore
+\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}0\\1\end{bmatrix}\\
+P_\mathbb{B}^\mathbb{C}=\begin{bmatrix}-1&0\\1&1\end{bmatrix}_\mathbb{B}^\mathbb{C}$
+
+     
+
+```{r}
+B<-matrix(c(1,0,1,1),nrow=2, ncol=2, byrow=FALSE)
+C<-matrix(c(0,1,1,1),nrow=2, ncol=2, byrow=FALSE)
+C%*%(solve(B))
+```
+ 
+ 

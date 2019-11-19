@@ -1,0 +1,63 @@
+---
+title: Linear Algebra  Algorithms, Applications, and Techniques
+##  Third Edition
+author:  Richard Bronson, Gabriel B. Costa, John T. Saccoman
+##  Elsevier Inc.
+##  Problem Sets
+output: html_document
+---
+     
+```{r, include=FALSE}
+library(dplyr)
+library(tidyverse)
+```
+
+
+#  Chapter 2
+## 2.1 PROPERTIES OF $\mathbb{R}^n$
+
+At the core of mathematical analysis is the process of identifying fundamental structures that appear with some regularity in different situations, developing them in the abstract, and then applying the resulting knowledge base back to
+the individual situations. In this way, one can understand simultaneously many different situations by investigating the properties that govern all of them. Matrices would seem to have little in common with polynomials, which in turn appear
+to have little in common with directed line segments, yet they share fundamental characteristics that, when fully developed, provide a richer understanding of them all.
+
+In order to motivate the ensuing discussion of these fundamental characteristics, we first present some of the properties of a common mathematical structure that should be familiar to readers of this text—the real number system. Points on the
+plane in an x-y coordinate system are identified by an ordered pair of real numbers; points in space are located by an ordered triplet of real numbers. These are just two examples of the more general concept of an ordered array of n-real numbers known as an n-tuple. We write an n-tuple as a 1  n row matrix. The elements in the row matrix are real numbers and the number of elements (columns) n is the dimension of the row matrix. The set of all n-tuples is often referred to as n-space and denoted by $\mathbb{R}^n$. In particular, the ordered pair [1 2] is a member of $\mathbb{R}^2$; it is a 2-tuple of dimension two. The ordered triplet [10 20 30] is a member of $\mathbb{R}^3$ ; it is a 3-tuple of dimension three. The p-tuple a = [a1 a2 a3 . . . ap], where $a_{j}$ (j = 1, 2, . . . , p) is a real number, is a member of $\mathbb{R}^p$ , and has dimension p.
+
+An ordered array of real numbers also can be written as a column matrix, and often is. Here we work exclusively with row matrix representations, but only as a matter of convenience. We could work equally well with column matrices.
+
+Row matrices are special types of matrices, those matrices having only one row, so the basic matrix operations defined in Section 1.1 remain valid for n-tuples represented as row matrices. This means we know how to add and subtract n-tuples of the same dimension and how to multiple a real number times an n-tuple (scalar multiplication). If we restrict ourselves to $\mathbb{R}^2$ and$\mathbb{R}^3$ , we can describe these operations geometrically.
+
+A two-dimensional row matrix v = [a b] is identified with the point (a, b) on x-y plane, measured *a* units along the horizontal x-axis from the origin and then *b* units parallel to the vertical y-axis. If we draw a directed line segment, or arrow, beginning at the origin and ending at the point (a, b), then this arrow, as shown in Figure 2.1, is a geometrical representation of the row matrix [a b]. It follows immediately from Pythagoras’s theorem that the length or *magnitude* of **v**, denoted by $\lVert\mathbf{v}\rVert$, is $\lVert\mathbf{v}\rVert=\lVert\lvert{a b}\rvert\rVert=\sqrt{a^2+b^2}$ and from elementary trigonometry that the angle $\theta$ satisfies the equation $tan\theta=\frac{a}{b}$
+
+```{r, out.width='25%', out.height='20%', fig.align='center', fig.cap='Figure 2.1', echo=FALSE}
+knitr::include_graphics('Figure.png')
+```
+
+### Problems 2.1
+
+\[ u=\begin{bmatrix}3& -1 \end{bmatrix}, v=\begin{bmatrix}-2& 5 \end{bmatrix}, w=\begin{bmatrix}-4& -4\end{bmatrix}, x=\begin{bmatrix}3& 5 \end{bmatrix}, y=\begin{bmatrix}0& -2 \end{bmatrix}\]
+
+```{r echo=FALSE}
+u<-matrix(c(3, -1), nrow=1, byrow=TRUE)
+v<-matrix(c(-2,5), nrow=1, byrow=TRUE)
+w<-matrix(c(-4,-4), nrow=1, byrow=TRUE)
+x<-matrix(c(3,5), nrow=1, byrow=TRUE)
+y<-matrix(c(0,-2), nrow=1, byrow=TRUE)
+#writeLines("1 u+v.");u+v; writeLines("\n")
+#writeLines("2 u+w.");u+w; writeLines("\n")
+#writeLines("3 v+w.");v+w; writeLines("\n")
+#writeLines("4 x+y.");x+y; writeLines("\n")
+#writeLines("5 x-y.");x-y; writeLines("\n")
+#writeLines("6 y-x.");y-x; writeLines("\n")
+#writeLines("7 u-v.");u-v; writeLines("\n")
+#writeLines("8 w-u.");w-u; writeLines("\n")
+#writeLines("9 u-w.");u-w; writeLines("\n")
+#writeLines("10 2x");2*x; writeLines("\n")
+#writeLines("11 3x");3*x; writeLines("\n")
+#writeLines("12 -2x");-2*x; writeLines("\n")
+writeLines("13 $\frac{1}{2}u$");(1/2)*u; writeLines("\n")
+#writeLines("14 $\frac{-1}{2}u$");(-1/2)*u; writeLines("\n")
+#writeLines("15 $\frac{1}{3}v$");(1/3)*v; writeLines("\n")
+#writeLines("16 $\frac{-1}{4}w$");(-1/4)*w; writeLines("\n")
+```
+

@@ -1,0 +1,34 @@
+body {
+  background-color: linen;
+}
+
+h1 {
+  color: navy;
+}
+
+h2 {
+  color: navy;
+  margin-left: 5px;
+}
+
+h3 {
+   color: navy;
+   margin-left: 10px; 
+}
+
+ol.1 {
+  margin-left: 20px;
+}
+
+ol.a {
+    margin-left: 25px;
+}
+
+p {
+    margin-left: 20px;
+}
+
+pre {
+    display: block;
+    margin-left: 100px;
+}

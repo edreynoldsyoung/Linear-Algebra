@@ -1,0 +1,118 @@
+---
+title: Linear Algebra  Algorithms, Applications, and Techniques
+##  Third Edition
+author:  Richard Bronson, Gabriel B. Costa, John T. Saccoman
+##  Elsevier Inc.
+##  Problem Sets
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#  Chapter 1 
+### Problem Set 1.3
+
+(1) For each of the following pairs of matrices A and B, find the products $(AB)^T$ , 
+$A^TB^T$ , and $B^TA^T$ and verify that $(AB)^T=B^TA^T$.
+
+(a) \[
+A=\begin{bmatrix}
+3& 0\\
+4& 1
+\end{bmatrix}
+\]
+\[B=\begin{bmatrix}
+-1& \quad 2& 1\\
+\quad 3& -1& 0
+\end{bmatrix}
+\]
+```{r}
+A<-matrix(c(3,0,4,1), nrow=2, ncol=2, byrow=TRUE)
+B<-matrix(c(-1,2,1,3,-1,0), nrow=2, ncol=3, byrow=TRUE)
+writeLines("(AB)^T");t(A %*% B); writeLines("\n")
+writeLines("A^TB^T non-conformable"); writeLines("\n")
+writeLines("B^TA^T"); t(B) %*% t(A); writeLines("\n")
+```
+(b) \[
+A=\begin{bmatrix}
+2& 2& 2\\
+3& 4& 5
+\end{bmatrix}
+\]
+\[B=\begin{bmatrix}
+1& 2\\
+3& 4\\
+5& 6
+\end{bmatrix}
+\]
+```{r}
+A<-matrix(c(2,2,2,3,4,5), nrow=2, ncol=3, byrow=TRUE)
+B<-matrix(c(1,2,3,4,5,6), nrow=3, ncol=2, byrow=TRUE)
+writeLines("(AB)^T");t(A %*% B); writeLines("\n")
+writeLines("A^TB^T"); t(A) %*% t(B); writeLines("\n")
+writeLines("B^TA^T"); t(B) %*% t(A); writeLines("\n")
+```
+(c) \[
+A=\begin{bmatrix}
+1& 5& -1\\
+2& 1& \quad 3\\
+0& 7& -8
+\end{bmatrix}
+\]
+\[B=\begin{bmatrix}
+\quad 6& \quad 1& \quad 3\\
+\quad 2& \quad 0& -1\\
+-1& -7 & \quad 2
+\end{bmatrix}
+\]
+```{r}
+A<-matrix(c(1,5,-1,2,1,3,0,7,-8), nrow=3, ncol=3, byrow=TRUE)
+B<-matrix(c(6,1,3,2,0,-1,-1,-7,2), nrow=3, ncol=3, byrow=TRUE)
+writeLines("(AB)^T");t(A %*% B); writeLines("\n")
+writeLines("A^TB^T"); t(A) %*% t(B); writeLines("\n")
+writeLines("B^TA^T"); t(B) %*% t(A); writeLines("\n")
+```
+(2) Verify that $(A+B)^T=A^T+B^T$ for the matrices given in part (c) of Problem 1.
+```{r}
+writeLines("(A+B)^T", sep="\n"); t(A+B)
+writeLines("A^T+B^T", sep="\n"); t(A)+t(B)
+```
+(3) If \[x=\begin{bmatrix}2\\3\\4\end{bmatrix}\] find $x^Tx$ and $xx^T$
+
+```{r}
+x<-matrix(c(2,3,4), nrow=3, ncol=1)
+x
+writeLines("x^Tx"); t(x) %*% x
+writeLines("xx^T"); x %*% t(x)
+```
+\[\begin{bmatrix}a&0\\0&b\end{bmatrix}\begin{bmatrix}c&0\\0&d\end{bmatrix}=\begin{bmatrix}ca&0\\0&bd\end{bmatrix}=
+\begin{bmatrix}ac&0\\0&db\end{bmatrix}=\begin{bmatrix}c&0\\0&d\end{bmatrix}\begin{bmatrix}a&0\\0&b\end{bmatrix}\]
+
+(19) Calculate the products AD and BD for
+\[
+A=\begin{bmatrix}1 & 1 & 1\\1 & 1 & 1\\1 & 1 & 1 \end{bmatrix}
+B=\begin{bmatrix}0 &1 & 2\\3 & 4 & 5 \\6 & 7 & 8 \end{bmatrix}
+D=\begin{bmatrix}2 &0 & 0\\0 & 3 & 0 \\0 & 0 & -5 \end{bmatrix}
+E=\begin{bmatrix}0 &0 & 2\\0 & 3 & 0 \\-5 & 0 & 0 \end{bmatrix}
+F=\begin{bmatrix}2 &3 & -5\\0 & 0 & 0 \\0 & 0 & 0 \end{bmatrix}
+\]
+```{r}
+A<-matrix(c(1,1,1,1,1,1,1,1,1), nrow=3, ncol=3, byrow=TRUE)
+B<-matrix(c(0,1,2,3,4,5,6,7,8), nrow=3, ncol=3, byrow=TRUE)
+D<-matrix(c(2,0,0,0,3,0,0,0,-5), nrow=3, ncol=3, byrow=TRUE)
+E<-matrix(c(0,0,2,0,3,0,-5,0,0), nrow=3, ncol=3, byrow=TRUE)
+F<-matrix(c(2,3,-5,0,0,0,0,0,0), nrow=3, ncol=3, byrow=TRUE)
+A %*% D
+B %*% D
+D %*% A
+D %*% B
+A %*% E
+B %*% E
+A %*% F
+B %*% F
+```
+
